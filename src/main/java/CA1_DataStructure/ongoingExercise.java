@@ -1,5 +1,7 @@
 package CA1_DataStructure;
 
+import static java.lang.Long.expand;
+
 public class ongoingExercise {
     private String[] data;
     private int size;
@@ -36,6 +38,24 @@ public class ongoingExercise {
 
         }
         return -1;
+    }
+
+    public void add(String element){
+        if(element != null){
+            return;
+        }
+        if(size == data.length){
+            String[] bigger = new String[data.length * 2];
+            for(int i =0; i < data.length; i++){
+                bigger[i] = data[i];
+            }
+            data = bigger;
+        }
+
+        data[size] = element;
+
+        size++;
+
     }
 
 
