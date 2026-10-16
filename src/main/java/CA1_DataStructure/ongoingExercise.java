@@ -3,8 +3,8 @@ package CA1_DataStructure;
 public class ongoingExercise {
     private String[] data;
     private int size;
-    private static final int INITIAL_CAPACITY = 10;
-    private static final int EXPANSION_FACTOR = 2;
+    private static final int INITIAL_CAPACITY = 10; //elements
+    private static final int EXPANSION_FACTOR = 2; // size increase
 
     public ongoingExercise() {
         this.data = new String[INITIAL_CAPACITY];
@@ -23,8 +23,19 @@ public class ongoingExercise {
         return data[index];
     }
 
-    public int indexOf(int element){
+    public int indexOf(String element){
+            for(int i =0; i < size; i++){
+                if(element != null){
+                    if(data[i] == null){
+                        return i;
+                    }
 
+                } else if (element.equals(data[i])) {
+                    return i;
+                }
+
+        }
+        return -1;
     }
 
 
