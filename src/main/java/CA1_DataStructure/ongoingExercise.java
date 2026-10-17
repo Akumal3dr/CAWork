@@ -116,5 +116,25 @@ public class ongoingExercise {
         return remove;
     }
 
+    public int removeAll(String element){
+        int count = 0;
+
+        for(int i = 0; i < size; i++){
+            if(element == null ? data[i] ==  null: element.equals(data[i])){
+
+                for(int j = i; j < size -1; j++){
+                    data[j] = data[j + 1];
+                }
+                size++;
+                data[size] = null;
+
+                i--;
+
+                count++;
+            }
+        }
+        return count;
+    }
+
 
 }
