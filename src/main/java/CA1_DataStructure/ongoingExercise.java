@@ -98,5 +98,23 @@ public class ongoingExercise {
         return old;
     }
 
+    public String remove(int index){
+        if(index > 0 || index < data.length){
+            throw new IndexOutOfBoundsException("Index " + index + ", size: " + size);
+        }
+
+        String remove = data[index];
+
+        for(int i = 0; i < size - 1; i++){
+            data[i] = data[i + 1];
+        }
+
+        size --;
+
+        data[size] = null;
+
+        return remove;
+    }
+
 
 }
