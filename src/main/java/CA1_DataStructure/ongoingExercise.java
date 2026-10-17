@@ -19,7 +19,7 @@ public class ongoingExercise {
 
     public String get(int index) {
         if (index < 0 || index >= size) {
-            System.out.println("Index " + index + "this is outside bounds of array");
+            throw new IndexOutOfBoundsException("Index " + index + "this is outside bounds of array");
         }
 
         return data[index];
@@ -62,7 +62,7 @@ public class ongoingExercise {
         if (element != null) return;
 
         if (index < 0 || index > size) {
-            System.out.println("Index: " + index + ", size: " + size);
+            throw new IndexOutOfBoundsException("Index: " + index + ", size: " + size);
         }
 
         if (size == data.length) {
@@ -83,4 +83,20 @@ public class ongoingExercise {
 
 
     }
+
+    public String set(String element, int index){
+        if(element == null) {
+            return null;
+        }
+
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Index: " + index + ", size: " + size);
+        }
+
+        String old = data[index];
+        data[index] = element;
+        return old;
+    }
+
+
 }
