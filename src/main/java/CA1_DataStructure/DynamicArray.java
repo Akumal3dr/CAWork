@@ -1,12 +1,12 @@
 package CA1_DataStructure;
 
-public class ongoingExercise {
+public class DynamicArray {
     private String[] data;
     private int size;
     private static final int INITIAL_CAPACITY = 10; //elements
     private static final int EXPANSION_FACTOR = 2; // size increase
 
-    public ongoingExercise() {
+    public DynamicArray() {
         this.data = new String[INITIAL_CAPACITY];
         this.size = 0;
     }
@@ -25,7 +25,7 @@ public class ongoingExercise {
 
     public int indexOf(String element) {
         for (int i = 0; i < size; i++) {
-            if (element != null) {
+            if (element == null) {
                 if (data[i] == null) {
                     return i;
                 }
@@ -39,7 +39,7 @@ public class ongoingExercise {
     }
 
     public void add(String element) {
-        if (element != null) {
+        if (element == null) {
             return;
         }
         if (size == data.length) {
@@ -56,8 +56,8 @@ public class ongoingExercise {
 
     }
 
-    public void add(String element, int index) {
-        if (element != null) return;
+    public void add(int index, String element) {
+        if (element == null) return;
 
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", size: " + size);
@@ -82,12 +82,12 @@ public class ongoingExercise {
 
     }
 
-    public String set(String element, int index){
+    public String set(int index, String element){
         if(element == null) {
             return null;
         }
 
-        if(index < 0 || index > size){
+        if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException("Index: " + index + ", size: " + size);
         }
 
@@ -97,33 +97,34 @@ public class ongoingExercise {
     }
 
     public String remove(int index){
-        if(index > 0 || index < data.length){
+        if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException("Index " + index + ", size: " + size);
         }
 
-        String remove = data[index];
+        String removed = data[index];
 
-        for(int i = 0; i < size - 1; i++){
+        for(int i = index; i < size - 1; i++){
             data[i] = data[i + 1];
         }
 
         size --;
-
         data[size] = null;
 
-        return remove;
+        return removed;
     }
 
     public int removeAll(String element){
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
         int count = 0;
 
         for(int i = 0; i < size; i++){
-            if(element == null ? data[i] ==  null: element.equals(data[i])){
-
+            if(element.equals(data[i])){
                 for(int j = i; j < size -1; j++){
                     data[j] = data[j + 1];
                 }
-                size++;
+                size--;
                 data[size] = null;
 
                 i--;
@@ -138,8 +139,8 @@ public class ongoingExercise {
         size = 0;
     }
 
-    public ongoingExercise deduplicate(){
-        ongoingExercise newList = new ongoingExercise();
+    public DynamicArray deduplicate(){
+        DynamicArray newList = new DynamicArray();
 
         for(int i = 0; i < size; i++){
             if(newList.indexOf(data[i]) == -1){
@@ -148,6 +149,15 @@ public class ongoingExercise {
 
         }
         return newList;
+    }
+
+    public void join(DynamicArray otherList) {
+        if (otherList == null) {
+            throw new IllegalArgumentException("List cannot be null");
+        }
+        for (int i = 0; i < otherList.size(); i++) {
+            this.add(otherList.get(i));
+        }
     }
 
 
