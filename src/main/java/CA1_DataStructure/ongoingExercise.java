@@ -138,7 +138,17 @@ public class ongoingExercise {
         size = 0;
     }
 
+    public ongoingExercise deduplicate(){
+        ongoingExercise newList = new ongoingExercise();
 
+        for(int i = 0; i < size; i++){
+            if(newList.indexOf(data[i]) == -1){
+                newList.add(data[i]);
+            }
+
+        }
+        return newList;
+    }
 
 
 }
