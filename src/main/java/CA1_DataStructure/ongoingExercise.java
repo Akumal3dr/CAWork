@@ -1,7 +1,5 @@
 package CA1_DataStructure;
 
-import static java.lang.Long.expand;
-
 public class ongoingExercise {
     private String[] data;
     private int size;
@@ -135,6 +133,12 @@ public class ongoingExercise {
         }
         return count;
     }
+
+    public void clear(){
+        size = 0;
+    }
+
+
 
 
 }
