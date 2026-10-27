@@ -1,5 +1,16 @@
 package CA1_Algotithms.twopointer;
 
+/**
+ * Finds the shortest subarray whose sum is at least the target.
+ * Uses a sliding window: the right pointer expands the window,
+ * and the left pointer shrinks it when the sum is big enough.
+ *
+ * @param num the array of positive numbers
+ * @param tar the target sum
+ * @return the start and end positions of the shortest subarray,
+ *         or {0} if no subarray is big enough
+ */
+
 public class problem3TP {
     public static void main(String[] args) {
         int[] num = {2, 3, 1, 2, 4, 3};
