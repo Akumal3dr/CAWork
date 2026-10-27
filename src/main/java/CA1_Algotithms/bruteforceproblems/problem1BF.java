@@ -9,6 +9,14 @@ public class problem1BF {
         System.out.println("The result is " + results);
     }
 
+    /**
+     * Check if two ints arrys contain the same elements, in any order
+     * uses brute force, a nested look and a tracker(used)
+     * @param num1 my first array
+     * @param num2 my second array
+     * @return true if both arrays contain the smae elements, false if not
+     */
+
     public static boolean areArraysEqualBrute(int[] num1, int[] num2){
         if(num1.length != num2.length){
             return false;
